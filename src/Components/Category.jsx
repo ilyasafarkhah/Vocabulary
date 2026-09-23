@@ -11,12 +11,11 @@ function Category (prop){
     const navigate = useNavigate()
 
     return(
-        <>
+        <ul>
         {categories.map(category =>
-        <li key={category}><button value={category} onClick={(e) => [handleCategoryFilter(e), navigate("/wordlist")]}>{category}</button></li>
+        <li key={category}><button value={category} onClick={(e) => {handleCategoryFilter(e), navigate("/wordlist")}}>{category}</button></li>
         )}
-        {prop.categoryfilter} <br />
-        </>
+        </ul>
     )
 }
 

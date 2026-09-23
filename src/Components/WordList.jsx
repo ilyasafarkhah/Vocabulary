@@ -17,6 +17,8 @@ function WordList (prop){
 
     function EditWord(item) {
         prop.setWord(item)
+        prop.setEditingId(item.id)
+        navigate("/addword")
     }
 
     const navigate = useNavigate()
@@ -31,7 +33,7 @@ function WordList (prop){
     }
 
     if (prop.categoryfilter !== ""){
-        showList = showList.filter(item => item.category.toLowerCase() === prop.categoryfilter)
+        showList = showList.filter(item => item.category.toLowerCase() === prop.categoryfilter.toLowerCase())
     }
 
 
@@ -44,7 +46,7 @@ function WordList (prop){
             <div key={item.id}>
                 <p>{item.word} {item.translate}</p>
                 <button type="button" onClick={() => DeleteWord(item.id)}>Delete</button>
-                <button type="button" onClick={() => [EditWord(item), navigate("/addword")]}>Edit</button>
+                <button type="button" onClick={() => EditWord(item)}>Edit</button>
             </div>
         ))}
         </>
@@ -52,11 +54,3 @@ function WordList (prop){
 }
 
 export default WordList
-
-//         {prop.wordList.map(item => (
-        //     <div key={item.id}>
-        //         <p>{item.word}</p>
-        //         <button type="button" onClick={() => DeleteWord(item.id)}>Delete</button>
-        //         <button type="button" onClick={() => EditWord(item)}>Edit</button>
-        //     </div>
-        // ))}

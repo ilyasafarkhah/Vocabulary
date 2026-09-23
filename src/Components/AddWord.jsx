@@ -13,22 +13,29 @@ function AddWord(prop){
 
         e.preventDefault()
 
-        prop.setWordList(prev => {
-            const exists = prev.some(w => w.id === prop.word.id)
-            return exists ?
-                prev.map(w => (w.id === prop.word.id ? prop.word : w))
-                : [...prev, prop.word]
-        })
-        
-        prop.setWord({
-            id : crypto.randomUUID(),
-            word : "",
-            type : "",
-            translate : "",
-            example : "",
-            level : "",
-            category : ""
-        })
+        const normalizedWord = {
+            ...prop.word,
+            category: prop.word.category.trim(),
+            level: prop.word.level.trim().toUpperCase()
+        }
+        if (prop.editingId === null) {
+
+            prop.setWordList(prev => [
+                ...prev,
+                normalizedWord
+            ])
+        } 
+        else {
+            prop.setWordList(prev =>
+                prev.map(item =>
+                    item.id === prop.editingId
+                        ? normalizedWord
+                        : item
+                )
+            )
+        }
+
+        prop.resetWord()
     }
 
     return(
@@ -72,7 +79,7 @@ function AddWord(prop){
                 level:
                 <input
                     type="text"
-                    value={prop.word.level.toUpperCase()}
+                    value={prop.word.level}
                     name="level"
                     onChange={handleAddWord}
                     placeholder="A1, A2, B1,..."
@@ -90,7 +97,9 @@ function AddWord(prop){
                     required
                 />
             </label>
-            <button type="submit">submit</button>
+            <button type="submit">
+                {prop.editingId === null ? "Add Word" : "Save Changes"}
+            </button>
         </form>
         {prop.word.word}
         </>
