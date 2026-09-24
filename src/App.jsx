@@ -5,7 +5,6 @@ import WordList from './Components/WordList'
 import './App.css'
 import Home from "./Components/Home"
 import { Route, Routes } from 'react-router'
-import Category from './Components/Category'
 
 function App() {
   const [word, setWord] = useState({
@@ -25,17 +24,16 @@ function App() {
   const [wordList, setWordList] = useLocalStorage('wordList', [])
 
   function resetWord() {
-      setWord({
-          id: crypto.randomUUID(),
-          word: "",
-          type: "",
-          translate: "",
-          example: "",
-          level: "",
-          category: ""
-      })
-
-      setEditingId(null)
+    setWord({
+        id: "",
+        word: "",
+        type: "",
+        translate: "",
+        example: "",
+        level: "",
+        category: ""
+    })
+    setEditingId(null)
   }
 
 
@@ -78,7 +76,8 @@ function App() {
             setWord={setWord}
             wordList={wordList} 
             setWordList={setWordList}
-            setEditingId={setEditingId} 
+            setEditingId={setEditingId}
+            resetWord={resetWord} 
           />
         }
       />

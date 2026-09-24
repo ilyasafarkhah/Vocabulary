@@ -12,7 +12,11 @@ function WordList (prop){
     ]
 
     function DeleteWord(id){
-        prop.setWordList(prev => prev.filter(w => (w.id !== id)))
+        prop.setWordList(prev => prev.filter(w => w.id !== id))
+
+        if (prop.editingId === id) {
+            prop.resetWord()
+        }
     }
 
     function EditWord(item) {
@@ -44,7 +48,7 @@ function WordList (prop){
         <Filter FilterOptions={FilterOptions} setLevel={setLevel} />
         {showList.map(item => (
             <div key={item.id}>
-                <p>{item.word} {item.translate}</p>
+                <p>{item.word}</p>
                 <button type="button" onClick={() => DeleteWord(item.id)}>Delete</button>
                 <button type="button" onClick={() => EditWord(item)}>Edit</button>
             </div>

@@ -65,6 +65,17 @@ function AddWord(prop){
             </label>
 
             <label>
+                translate:
+                <input
+                    type="text"
+                    value={prop.word.translate}
+                    name="translate"
+                    onChange={handleAddWord}
+                    placeholder="Enter meaning"
+                />
+            </label>
+
+            <label>
                 example:
                 <input
                     type="text"
