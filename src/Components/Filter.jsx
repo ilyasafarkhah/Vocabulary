@@ -1,15 +1,42 @@
-function Filter (prop){
+import "/src/CSS/Filter.css"
 
-    return(
-        <ul>
-        {prop.FilterOptions.map(level =>
-            <li key={level}>
-                <button key={level} type="button" onClick={() => prop.setLevel(level)}>
-                    {level}
-                </button>
-            </li>
-        )}
-        </ul>
+function Filter(prop) {
+
+    return (
+
+        <div className="level-filter">
+
+            <span className="filter-label">
+                Level
+            </span>
+
+
+            <div className="level-options">
+
+                {
+                    prop.FilterOptions.map(level => (
+
+                        <button
+                            key={level}
+                            type="button"
+                            className={
+                                prop.selectedLevel === level
+                                    ? "level-button selected"
+                                    : "level-button"
+                            }
+                            onClick={() =>
+                                prop.setLevel(level)
+                            }
+                        >
+                            {level}
+                        </button>
+
+                    ))
+                }
+
+            </div>
+
+        </div>
     )
 }
 
