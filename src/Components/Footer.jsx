@@ -11,7 +11,7 @@ function Footer() {
                 <div>
 
                     <strong>
-                        VocabLab
+                        Safarkhah VocabMemory
                     </strong>
 
                     <p>

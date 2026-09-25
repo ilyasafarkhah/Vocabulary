@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router"
 import "/src/CSS/Category.css"
+import bookshelves from "/src/Assets/bookshelves.svg"
 
 function Category(prop) {
 
@@ -28,18 +29,20 @@ function Category(prop) {
 
             <div className="section-heading">
 
-                <div>
+                <div className="section-heading-text">
+                    <div>
+                        <span className="section-kicker">
+                            YOUR COLLECTION
+                        </span>
 
-                    <span className="section-kicker">
-                        YOUR COLLECTION
-                    </span>
-
-                    <h2>
-                        Browse by category
-                    </h2>
-
+                        <h2>
+                            Browse by category
+                        </h2>
+                    </div>
+                    <div className="section-h2-pic">
+                        <img src={bookshelves} alt="bookshelves"/>
+                    </div>
                 </div>
-
 
                 <span className="category-count">
                     {categories.length} categories

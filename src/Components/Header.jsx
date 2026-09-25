@@ -13,7 +13,7 @@ function Header() {
                     to="/"
                     className="brand"
                 >
-                    Vocab<span>Lab</span>
+                    Safarkhah<span> Vocab Memory</span>
                 </NavLink>
 
 

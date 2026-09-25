@@ -1,5 +1,6 @@
 import { NavLink } from "react-router"
 import Category from "./Category"
+import openbook from "/src/Assets/openbook.svg"
 import "/src/CSS/Home.css"
 
 function Home(prop) {
@@ -90,6 +91,10 @@ function Home(prop) {
                             Categories
                         </span>
 
+                    </div>
+
+                    <div className="stat-pic">
+                        <img src={openbook} alt="openbook" />
                     </div>
 
                 </div>

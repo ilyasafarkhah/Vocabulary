@@ -50,7 +50,7 @@
 
     border-radius: 50%;
 
-    background: rgba(37, 99, 235, 0.22);
+    background: rgba(37, 100, 235, 0.464);
 
     filter: blur(10px);
 }
@@ -60,6 +60,7 @@
     position: relative;
 
     z-index: 1;
+
 }
 
 .eyebrow {
@@ -81,8 +82,6 @@
         clamp(2.5rem, 6vw, 4.8rem);
 
     line-height: 0.98;
-
-    letter-spacing: -0.06em;
 }
 
 .hero-copy h1 span {
@@ -99,6 +98,9 @@
     font-size: 1rem;
 
     line-height: 1.75;
+
+    letter-spacing: 0.075em;
+
 }
 
 .home-actions {
@@ -165,7 +167,7 @@
 .home-stats {
     display: grid;
 
-    gap: 14px;
+    gap: 35px;
 
     align-content: center;
 }
@@ -201,6 +203,12 @@
 
     font-size: 0.86rem;
 }
+
+.stat-pic{
+    width: 75%;
+    justify-self: center;
+}
+
 
 @media (max-width: 760px) {
 
